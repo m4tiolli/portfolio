@@ -1,0 +1,36 @@
+@mixin animation($name) {
+  animation: $name 2s linear 3s;
+}
+
+@keyframes name {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+@keyframes mail {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.logo {
+  position: absolute;
+  &.name {
+    @include animation(name);
+  }
+  &.mail {
+    @include animation(mail);
+  }
+}
