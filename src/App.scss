@@ -1,0 +1,28 @@
+@import './main.scss';
+
+.bg-home {
+    background-image: url('./assets/backgroundhome.png');
+    height: 87%;
+    filter: brightness(.5);
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+}
+
+.container-home {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    padding: 10em;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    height: 87%;
+}
+
+.emoji {
+    font-family: $emoji;
+}
