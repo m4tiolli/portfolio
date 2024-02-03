@@ -1,4 +1,4 @@
-export default function Scroll() {
+function Scroll() {
   return (
     <svg
       width="38"
@@ -36,3 +36,5 @@ export default function Scroll() {
     </svg>
   );
 }
+
+export default Scroll;

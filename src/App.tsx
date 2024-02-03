@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import "./App.scss";
-import Scroll from './assets/scroll.jsx'
-
+import Scroll from "./components/Scroll.tsx";
 function App() {
   return (
     <main>
@@ -16,10 +15,13 @@ function App() {
             I'm a <span className="text-[#B0FF4D]">full-stack</span> developer.
             <span className="emoji">🚀</span>
           </h1>
-          <h2 className="text-white font-medium text-[2.5rem] w-3/5">Scroll down to know about me and my career.<span className="emoji">💼</span></h2>
+          <h2 className="text-white font-medium text-[2.5rem] w-3/5">
+            Scroll down to know about me and my career.
+            <span className="emoji">💼</span>
+          </h2>
           <div className="text-center fixed left-1/2 -translate-x-1/2 bottom-4 animate-pulse">
             <p className="text-white font-light">scroll</p>
-            <Scroll/>
+            <Scroll />
           </div>
         </div>
       </div>
