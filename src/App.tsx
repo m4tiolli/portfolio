@@ -1,21 +1,44 @@
 import Header from "./components/Header";
 import "./App.scss";
 import Scroll from "./components/Scroll.tsx";
+import HeaderMobile from "./components/HeaderMobile.tsx";
+import { useEffect, useState } from "react";
+
 function App() {
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMobile(window.innerWidth < 700);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <main>
-      <div className="w-screen h-screen">
-        <Header />
+      <div className="w-dvw h-svh relative">
+        {mobile ? (
+          <>
+            <HeaderMobile />
+            <div className="h-[13%]"></div>
+          </>
+        ) : (
+          <Header />
+        )}
         <div className="bg-home"></div>
-        <div className="container-home relative">
-          <h3 className="text-white font-normal text-[2.5rem] -mb-2 -mt-20">
+        <div className="container-home relative p-10 xl:p-24">
+          <h3 className="text-white font-normal text-lg -mt-20 sm:mb-4 sm:text-[2rem] md:text-[2.5rem] md:mb-6 2xl:text-[3.5rem] 2xl:mb-12">
             Hello everyone!<span className="emoji">✌🏻</span>
           </h3>
-          <h1 className="text-white font-semibold text-[3.5rem] mb-10">
+          <h1 className="text-white font-semibold text-xl mb-10 sm:text-[2.6rem] md:text-[3rem] md:mb-16 2xl:text-[4rem] 2xl:mb-32">
             I'm a <span className="text-[#B0FF4D]">full-stack</span> developer.
             <span className="emoji">🚀</span>
           </h1>
-          <h2 className="text-white font-medium text-[2.5rem] w-3/5">
+          <h2 className="text-white font-medium text-lg sm:text-[1.5rem] md:text-[2rem] 2xl:text-[3rem]">
             Scroll down to know about me and my career.
             <span className="emoji">💼</span>
           </h2>

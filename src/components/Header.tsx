@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 function Header() {
-  const [words] = useState([<Name />, <Email />]);
+  const [words] = useState([<Name direction={"left"} />, <Email />]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHidden, setIsHidden] = useState(false);
 
@@ -51,9 +51,9 @@ function Header() {
   );
 }
 
-function Name() {
+export function Name({ direction }: { direction: string }) {
   return (
-    <div className="absolute">
+    <div className={classNames("absolute", { "left-4": direction === "left" })}>
       <div className="text-center">
         <h1 className="text-2xl leading-6">Gabriel Matiolli</h1>
         <h3 className="font-thin text-sm leading-4">Full-Stack Developer</h3>
