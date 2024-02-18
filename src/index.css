@@ -4,6 +4,6 @@
 
 @layer components {
     .ul-li {
-        @apply text-2xl text-[#1a1a1a] font-medium cursor-pointer hover:bg-zinc-50 p-2 rounded-xl active:shadow-inner hover:text-[#444444] active:translate-y-1 transition-all
+        @apply text-2xl text-[#1a1a1a] dark:text-white font-medium cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 p-2 rounded-xl active:shadow-inner hover:text-[#444444] active:translate-y-1 transition-all
     }
 }

@@ -50,8 +50,19 @@ function Header() {
     }
   };
 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      setIsChecked(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setIsChecked(false);
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
   return (
-    <header className="h-[13%] px-4 shadow-2xl shadow-black flex items-center justify-center relative">
+    <header className="h-[13%] px-4 shadow-2xl shadow-black flex items-center justify-center relative bg-white dark:bg-[#1a1a1a]">
       <div
         className={classNames(
           "w-1/4 relative h-full flex items-center justify-left transition-opacity",
@@ -73,11 +84,11 @@ function Header() {
       </nav>
       <div className="w-1/4 flex items-center justify-end gap-4">
         <FiMoon
-          className="text-[#1a1a1a] text-3xl hover:opacity-70 cursor-pointer transition-all active:opacity-90"
+          className="text-[#1a1a1a] dark:text-white text-3xl hover:opacity-70 cursor-pointer transition-all active:opacity-90"
           onClick={onDark}
         />
         <TbWorld
-          className="text-[#1a1a1a] text-3xl hover:opacity-70 cursor-pointer transition-all active:opacity-90"
+          className="text-[#1a1a1a] dark:text-white text-3xl hover:opacity-70 cursor-pointer transition-all active:opacity-90"
           onClick={onLang}
         />
       </div>
@@ -145,8 +156,8 @@ export function Name({ direction }: { direction: string }) {
   return (
     <div className={classNames("absolute", { "left-4": direction === "left" })}>
       <div className="text-center">
-        <h1 className="text-2xl leading-6">Gabriel Matiolli</h1>
-        <h3 className="font-thin text-sm leading-4">Full-Stack Developer</h3>
+        <h1 className="text-2xl leading-6 dark:text-white">Gabriel Matiolli</h1>
+        <h3 className="font-thin text-sm leading-4 dark:text-white">Full-Stack Developer</h3>
       </div>
     </div>
   );
@@ -154,7 +165,7 @@ export function Name({ direction }: { direction: string }) {
 
 function Email() {
   return (
-    <span className="flex items-center absolute gap-1">
+    <span className="flex items-center absolute gap-1 dark:text-white">
       <HiOutlineMail size={30} />
       <h1 className="text-xl">gabrielmatiollif@gmail.com</h1>
     </span>
