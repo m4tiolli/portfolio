@@ -21,7 +21,7 @@ function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
-    const font = new FontFace('Emoji', 'url(./portfolio/src/assets/AppleColorEmoji.ttf)');
+    const font = new FontFace('Emoji', 'url(./src/assets/AppleColorEmoji.ttf)');
     font.load()
       .then(() => {
         document.fonts.add(font);
