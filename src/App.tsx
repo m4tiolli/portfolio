@@ -19,9 +19,13 @@ function App() {
   }, []);
 
   const [fontLoaded, setFontLoaded] = useState(false);
+  const isLocal = process.env.NODE_ENV == "development";
+  const fontString = isLocal
+    ? "./portfolio/src/assets/AppleColorEmoji.ttf"
+    : "./assets/AppleColorEmoji-WITw0xXl.ttf";
 
   useEffect(() => {
-    const font = new FontFace("Emoji", "url(./portfolio/src/assets/AppleColorEmoji.ttf)");
+    const font = new FontFace("Emoji", `url(${fontString})`);
     font
       .load()
       .then(() => {
@@ -54,7 +58,8 @@ function App() {
               developer.<span className="emoji">🚀</span>
             </h1>
             <h2 className="text-white font-medium text-lg sm:text-[1.5rem] md:text-[2rem] 2xl:text-[3rem]">
-              Scroll down to know about me and my career.<span className="emoji">💼</span>
+              Scroll down to know about me and my career.
+              <span className="emoji">💼</span>
             </h2>
             <div className="text-center fixed left-1/2 -translate-x-1/2 bottom-4 animate-pulse">
               <p className="text-white font-light">scroll</p>
